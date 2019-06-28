@@ -12,7 +12,6 @@ class KYC
      * Input : No. of Test Cases followed by the signup date and current date(in format dd-mm-yyyy dd-mm-yyyy ).
      * Output: Range of dates for KYC form in format dd-mm-yyyy dd-mm-yyyy 
      */
-    
     public static void setDate(Calendar c,int date,int month,int year)
     {
         c.set(Calendar.DATE,date);
