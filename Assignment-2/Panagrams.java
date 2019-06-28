@@ -13,6 +13,7 @@ public class Panagrams
      * Input  : A string (as command line argument)
      * Output : A string stating if input is a panagram or not.
     */
+ 
     public static void main(String args[])
     {
         try
