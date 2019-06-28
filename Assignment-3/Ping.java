@@ -11,6 +11,7 @@ public class Ping
 	 * Input : HostName(String) and No. of pings(Integer)
 	 * Output: The median time taken to ping.
 	 */
+	
   public static void runCommand(String command,int times) 
   {
 		try
