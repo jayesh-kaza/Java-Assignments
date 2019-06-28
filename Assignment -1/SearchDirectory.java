@@ -39,6 +39,7 @@ public class SearchDirectory
     {
         String ROOT_FILE_PATH="/home";
         Scanner sc = new Scanner(System.in);
+        
         while(true)
         {
             System.out.print("Enter regex: ");
