@@ -9,10 +9,6 @@ class Cycle
     {
         this.wheels = wheels;
     }
-    public int getWheels()
-    {
-        return wheels;
-    }
 }
 
 class Unicycle extends Cycle
