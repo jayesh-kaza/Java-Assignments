@@ -16,7 +16,7 @@ class Mouse extends Rodent
 {
     Mouse()
     {
-        super();
+        //super();
         System.out.println("I am a Mouse");
         speed = 19;
     }
@@ -35,7 +35,7 @@ class Gerbil extends Rodent
 {
     Gerbil()
     {
-        super();
+        //super();
         System.out.println("I am a Gerbil");
         speed = 4;
     }
@@ -55,7 +55,7 @@ class Hamster extends Rodent
 {
     Hamster()
     {
-        super();
+        //super();
         System.out.println("I am a Hamster");
         speed = 2;
     }
