@@ -15,75 +15,95 @@ class Node<T>
     }
 }
 
+
 class SList<T>
 {
     Node<T> head;
+
     SList()
     {
-        head = new Node<T>();
+        head = null;
     }
+
     public SListIterator iterator()
     {
         return new SListIterator<T>(head);
     } 
-    public String toString()
-    {
-        if(head.next==null)
-            return "SList : []";
-        System.out.print("SList : [");
-        SListIterator<T> it = this.iterator();
-        StringBuilder s = new StringBuilder();
-        while(it.hasNext())
-            s.append(it.next().data + (it.hasNext() ? ", " : ""));
-        return s+"]";
-    }
 }
+
+
 class SListIterator<T>
 {
     Node<T> head;
-    Node<T> current;
     Node<T> tail;
+
     SListIterator(Node<T> t)
     {
         head = t;
-        current=head;
-        tail = head;
     }
-    public boolean hasNext() {
-		return current.next!=null;
-	}
-	public Node<T> next() {
-		current = current.next;
-		return current;
-	}
+
     public void insert(T data)
     {
         if(head==null)
-            head = new Node<T>(data);
-        else
         {
-            Node<T> temp = new Node<T>(data);
-            tail.next = temp;
-            tail = temp;
+            head = new Node<T>(data);
+            tail = head;
+        }
+        else
+        { 
+            tail.next = new Node<T>(data);
+            tail = tail.next;
         }
     }
+
     public void delete(T data)
     {
+        if(head==null)
+        {
+            System.out.println("List is empty");
+            return;
+        }
+        if(String.valueOf(head.data).equals(String.valueOf(data)))
+        {
+            head = head.next;
+            return;
+        }
+
         Node<T> temp = head;
-        while(temp!=tail && temp.next.data!=data )
+        while(temp!=tail && !String.valueOf(temp.next.data).equals(String.valueOf(data))) 
             temp = temp.next;
+
         if(temp==tail)
         {
             System.out.println("No element as such present in the linked list");
             return;
         }
+
         if(temp.next==tail)
         {
             tail = temp;
-            temp.next = null;
+            tail.next = null;
         }
+
         else
             temp.next = temp.next.next;
+    }
+
+    public void display()
+    {
+        if(head==null)
+        {
+            System.out.println("List is empty");
+            return;
+        }
+        Node<T> temp = head;
+        System.out.print("SList : [");
+        while(temp!=tail)
+        {
+            System.out.print(temp.data+", ");
+            temp = temp.next;
+        }
+        System.out.println(temp.data+"]");
     }
 } 
 
@@ -91,23 +111,16 @@ class Assignment_6
 {
     public static void main(String args[])
     {
-        SList<Integer> myList = new SList<Integer>();
+        SList<String> myList = new SList<String>();
         SListIterator it = myList.iterator();
-        it.insert(10);
-        System.out.println(myList);
-        it.insert(20);
-        System.out.println(myList);
-        it.insert(30);
-        System.out.println(myList);
-        it.insert(30);
-        System.out.println(myList);
-        it.insert(40);
-        System.out.println(myList);
-        it.delete(40);
-        System.out.println(myList);
-        it.delete(50);
-        System.out.println(myList);
-        it.delete(10);
-        System.out.println(myList);
+        it.insert("Rahul");
+        it.insert("Sreetej");
+        it.insert("Jayesh");
+        it.display();
+        it.delete("Rahul");
+        it.delete("Jayesh");
+        it.display();
+        it.delete("Rahul");
+        it.display();
     }
 }
