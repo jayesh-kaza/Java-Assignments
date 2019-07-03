@@ -42,13 +42,15 @@ class SListIterator<T>
 {
     Node<T> head;
     Node<T> current;
+    Node<T> tail;
     SListIterator(Node<T> t)
     {
         head = t;
         current=head;
+        tail = head;
     }
     public boolean hasNext() {
-		return current.next != null;
+		return current.next!=null;
 	}
 	public Node<T> next() {
 		current = current.next;
@@ -60,24 +62,26 @@ class SListIterator<T>
             head = new Node<T>(data);
         else
         {
-            Node<T> temp = head;
-            while(temp.next!=null)
-                temp = temp.next;
-            temp.next = new Node<T>(data);
+            Node<T> temp = new Node<T>(data);
+            tail.next = temp;
+            tail = temp;
         }
     }
     public void delete(T data)
     {
         Node<T> temp = head;
-        while(temp.next!=null && temp.next.data!=data )
+        while(temp!=tail && temp.next.data!=data )
             temp = temp.next;
-        if(temp.next==null)
+        if(temp==tail)
         {
             System.out.println("No element as such present in the linked list");
             return;
         }
-        if(temp.next.next==null)
+        if(temp.next==tail)
+        {
+            tail = temp;
             temp.next = null;
+        }
         else
             temp.next = temp.next.next;
     }
@@ -90,13 +94,20 @@ class Assignment_6
         SList<Integer> myList = new SList<Integer>();
         SListIterator it = myList.iterator();
         it.insert(10);
+        System.out.println(myList);
         it.insert(20);
+        System.out.println(myList);
         it.insert(30);
+        System.out.println(myList);
         it.insert(30);
+        System.out.println(myList);
         it.insert(40);
         System.out.println(myList);
         it.delete(40);
         System.out.println(myList);
-
+        it.delete(50);
+        System.out.println(myList);
+        it.delete(10);
+        System.out.println(myList);
     }
 }
