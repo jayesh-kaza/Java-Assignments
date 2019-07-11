@@ -3,7 +3,7 @@ import java.util.*;
  
     
 
-public class Panagrams
+public class Pangrams
 {
     /** 
      * Java program that checks if the input string contains all the letters of the alphabet a-z (case-insensitive). 
