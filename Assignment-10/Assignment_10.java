@@ -107,7 +107,7 @@ class SListIterator<T>
     }
 } 
 
-class Assignment_6
+class Assignment_10
 {
     public static void main(String args[])
     {

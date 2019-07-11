@@ -40,7 +40,7 @@ class Y extends X implements in4
 
 }
 
-class Assignment_3_3
+class Assignment_7_3
 {
     public static void m1(in1 obj){ obj.in1Method1(); }
     public static void m2(in2 obj){ obj.in2Method1(); }

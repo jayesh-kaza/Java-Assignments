@@ -61,7 +61,7 @@ class CycleFactory
   
 }
 
-class Assignment_3_4
+class Assignment_7_4
 {
   public static void main(String []args)
   {

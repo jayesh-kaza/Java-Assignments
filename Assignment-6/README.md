@@ -7,6 +7,6 @@ java filename
 
 Ex: 
 
-javac Assignment_3_1.java
+javac Assignment_6_1.java
 
-java Assignment_3_1
+java Assignment_6_1

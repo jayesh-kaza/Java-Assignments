@@ -22,7 +22,7 @@ class MyException3 extends Exception
     }
 }
 
-class Assignment_4
+class Assignment_8
 {
     public static void throwing(int x)
     {

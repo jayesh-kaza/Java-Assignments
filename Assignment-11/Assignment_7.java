@@ -1,7 +1,7 @@
 import java.io.*;
 import java.util.*;
 
-class Assignment_7
+class Assignment_11
 {
     public static void main(String args[]) throws Exception
     {

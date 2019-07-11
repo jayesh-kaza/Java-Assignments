@@ -70,7 +70,7 @@ class Hamster extends Rodent
         System.out.println("I am a herbivore, I love carrots!\n");
     }
 }
-class Assignment_3_1
+class Assignment_7_1
 {
     public static void main(String args[])
     {

@@ -2,7 +2,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.ArrayList;
 
-class Assignment_2_1 {
+class Assignment_6_1 {
 
     public static int numberOfDigits(long n)
     {

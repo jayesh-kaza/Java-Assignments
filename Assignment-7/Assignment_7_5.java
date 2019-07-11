@@ -24,7 +24,7 @@ class P2
     }
 }
 
-class Assignment_3_5
+class Assignment_7_5
 {
     public static void main(String args[])
     {
