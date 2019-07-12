@@ -1,9 +1,7 @@
 To run--
 
-javac KYC.java
+javac filename.java
 
 java KYC
 
-   or
 
-java KYC
