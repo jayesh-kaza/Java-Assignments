@@ -2,9 +2,7 @@ import java.io.*;
 import java.util.*;
 import java.util.regex.*; 
 
-public class SearchDirectory
-{
-    /**
+/**
      * Java program to search through the home directory and look for files that match a regular expression. 
      * This program takes inputs repeatedly and prints out the full absolute path of the matching files found.
      * 
@@ -12,7 +10,15 @@ public class SearchDirectory
      * Output: absolute path of the files matching the regex
      * */
 
-    // Method to find the files matching the given regex
+public class SearchDirectory
+{
+    
+    /** Method to find the files matching the given regex
+
+	<br>Parameters: String Regex, String Path
+	<br>Return Type: void
+	<br>Output : prints the absolute file path of the files with names matching the given pattern 
+   */
     public static void finding(String reg,String ROOT_FILE_PATH) throws NullPointerException
     {
         File f = new File(ROOT_FILE_PATH);
@@ -34,7 +40,9 @@ public class SearchDirectory
             }
         }
     }
+	
 
+	/**This is the main method. It takes the regex as input */
     public static void main(String args[]) throws NullPointerException
     {
         String ROOT_FILE_PATH="/home";
