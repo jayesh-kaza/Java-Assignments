@@ -14,48 +14,48 @@ public class Ping
 	
   public static void runCommand(String command,int times) 
   {
-		try
-		{
+	try
+	{
 	    Process p = Runtime.getRuntime().exec(command);
-			BufferedReader inputStream = new BufferedReader(new InputStreamReader(p.getInputStream()));
-			ArrayList<Float> f=new ArrayList<>();
-			String s  = "";
-			String ms = "";
-			int len = times, flag = 0;
-			while ((s = inputStream.readLine()) != null)
-			{
-		    if(Pattern.matches(".*time=.*",s))
-				{
-          String ss[] = s.split(" ");
-          ms=ss[ss.length-2].substring(5);
-          System.out.println(s);
-					f.add(Float.parseFloat(ms));
-					flag = 1;
-				}
-			}
-		 	Collections.sort(f);
-			if (flag == 0)
-        System.out.println("\nunreachable");
-			else
-			{   
-        if(len%2 == 0)
-					System.out.println("\nMedian time = "+(f.get(len/2) + f.get(len/2 -1)) /2 );
-				else
-			    System.out.println("\nMedian time = "+f.get(len/2));
-			}
-    }  
-    catch (Exception e) 
-    {
-			e.printStackTrace();
-	  }  
-  }
+	    BufferedReader inputStream = new BufferedReader(new InputStreamReader(p.getInputStream()));
+	    ArrayList<Float> f=new ArrayList<>();
+	    String s  = "";
+	    String ms = "";
+	    int len = times, flag = 0;
+	    while ((s = inputStream.readLine()) != null)
+	    {
+		if(Pattern.matches(".*time=.*",s))
+		{
+                  String ss[] = s.split(" ");
+          	  ms=ss[ss.length-2].substring(5);
+          	  System.out.println(s);
+		  f.add(Float.parseFloat(ms));
+		  flag = 1;
+		}
+	     }
+	     Collections.sort(f);
+	     if (flag == 0)
+        	System.out.println("\nunreachable");
+	     else
+	     {   
+        	if(len%2 == 0)
+		    System.out.println("\nMedian time = "+(f.get(len/2) + f.get(len/2 -1)) /2 );
+		else
+		    System.out.println("\nMedian time = "+f.get(len/2));
+	      }
+         }  
+    	catch (Exception e) 
+    	{
+	   e.printStackTrace();
+	}  
+     }
   public static void main(String[] args) 
   {
-		Scanner sc= new Scanner(System.in);
-		System.out.print("Enter url of the host: ");
-		String url = sc.nextLine();
-		System.out.print("Enter number of times to ping (eg:1-20): ");
-		int t = sc.nextInt();
-		runCommand("ping -c"+t+" "+url,t);
-	}
+	Scanner sc= new Scanner(System.in);
+	System.out.print("Enter url of the host: ");
+	String url = sc.nextLine();
+	System.out.print("Enter number of times to ping (eg:1-20): ");
+	int t = sc.nextInt();
+	runCommand("ping -c"+t+" "+url,t);
+   }
 }
