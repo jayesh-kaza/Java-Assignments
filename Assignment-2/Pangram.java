@@ -1,9 +1,4 @@
-import java.io.*;
-import java.util.*;
- 
-    
-
-public class Pangrams
+public class Pangram
 {
     /** 
      * Java program that checks if the input string contains all the letters of the alphabet a-z (case-insensitive). 
@@ -35,9 +30,9 @@ public class Pangrams
                 }
 
             if(flag==0)
-                System.out.println("Not a panagram");
+                System.out.println("Not a pangram");
             else
-                System.out.println("It's a panagram");
+                System.out.println("It's a pangram");
         }
         catch(ArrayIndexOutOfBoundsException e)
         {

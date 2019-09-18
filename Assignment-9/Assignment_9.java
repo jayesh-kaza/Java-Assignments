@@ -17,8 +17,6 @@ class Assignment_9
         // else
         // System.out.println("Sentence does not start with a Capital letter and ends with '.' ");
 
-        
-
         String regex = "^[A-Z].*[.]";
         String st = br.readLine();
         if(Pattern.matches(regex,st))

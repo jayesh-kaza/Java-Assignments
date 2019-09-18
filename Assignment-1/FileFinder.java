@@ -1,6 +1,6 @@
-import java.io.*;
-import java.util.*;
-import java.util.regex.*; 
+import java.io.File;
+import java.util.Scanner;
+import java.util.regex.Pattern; 
 
 /**
      * Input : a regex
@@ -47,6 +47,7 @@ public class FileFinder
             if(ch.equals("N") || ch.equals("n"))
                 break;
         }
+        sc.close();
     }
 
 }

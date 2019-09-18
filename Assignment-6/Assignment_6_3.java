@@ -5,7 +5,6 @@ class C
     {
         this.s = s;
         System.out.println(s);
-
     }
 
 }

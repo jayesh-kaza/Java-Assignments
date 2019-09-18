@@ -1,5 +1,3 @@
-import java.io.*;
-
 class C1
 {
     int x,y;

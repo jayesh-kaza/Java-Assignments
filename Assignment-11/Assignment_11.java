@@ -1,5 +1,9 @@
-import java.io.*;
-import java.util.*;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.PrintWriter;
+import java.util.HashMap;
+import java.util.Map;
 
 class Assignment_11
 {
@@ -13,15 +17,18 @@ class Assignment_11
             char ch = '\0';
             HashMap<Character, Integer> hm = new HashMap<Character, Integer>();
             FileReader reader = new FileReader(file);
-            while ((i = reader.read()) != -1) {
+            while ((i = reader.read()) != -1) 
+            {
                 ch = (char) i;
-                if (ch != ' ' && ch != '\t' && ch != '\n') {
+                if (ch != ' ' && ch != '\t' && ch != '\n') 
+                {
                     if (hm.containsKey(ch))
                         hm.put(ch, (int) hm.get(ch) + 1);
                     else
                         hm.put(ch, 1);
                 }
             }
+
             FileWriter writer = new FileWriter("output.txt");
             PrintWriter pw = new PrintWriter(writer);
             pw.printf("Character   Occurances\n");

@@ -4,7 +4,6 @@ abstract class Rodent
     static int noOfLegs=4;
     Rodent()
     {
-
         System.out.println("I belong to Rodent class");
         System.out.println("I have "+noOfLegs+" legs");
     }

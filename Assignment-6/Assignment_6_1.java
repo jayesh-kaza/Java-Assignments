@@ -29,9 +29,7 @@ class Assignment_6_1 {
     public static void main(String[] args)
     {
         ArrayList<Long> vampireNumbers = new ArrayList<Long>();
-        
-
-        for(long i = 1260; vampireNumbers.size() <100; i++ )
+        for(long i=1260; vampireNumbers.size()<100; i++)
         {
             if((numberOfDigits(i) % 2) != 0) 
             {
@@ -39,7 +37,7 @@ class Assignment_6_1 {
                 continue; 
             }
 
-            for(long x = 2;x<= Math.sqrt(i)+1;x++){
+            for(long x=2; x<=Math.sqrt(i)+1; x++){
 
                 if(i%x==0)
                 {
