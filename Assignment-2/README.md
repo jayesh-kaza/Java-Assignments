@@ -1,10 +1,11 @@
 To run--
 
-javac Panagarams.java
-java Panagrams
+javac Pangaram.java
+
+java Pangram
 
    or 
    
-java Panagrams
+java Pangram
 
 Note: Input should be given in the command line
