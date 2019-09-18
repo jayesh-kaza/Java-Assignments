@@ -1,9 +1,9 @@
 To run--
 
-javac SearchDirectory.java
+javac FileFinder.java
 
-java SearchDirectory
+java FileFinder
 
       or
       
-java SearchDirectory
+java FileFinder
