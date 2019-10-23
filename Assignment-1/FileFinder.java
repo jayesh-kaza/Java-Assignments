@@ -3,30 +3,31 @@ import java.util.Scanner;
 import java.util.regex.Pattern; 
 
 /**
+     * @author : Jayesh 
      * Input : a regex
      * Output: absolute path of the files matching the regex
-     * */
+**/
 
 public class FileFinder
 {
-    public static void finding(String regex,String ROOT_FILE_PATH) throws NullPointerException
+    public static void findMatchingFiles(String regex,String ROOT_FILE_PATH) throws NullPointerException
     {
-        File f = new File(ROOT_FILE_PATH);
-        if(!f.exists())
+        File file = new File(ROOT_FILE_PATH);
+        if(!file.exists())
             return;
 
-        File[] allSubFiles = f.listFiles();
-        for (File file : allSubFiles) 
+        File[] allSubFiles = file.listFiles();
+        for (File subFile : allSubFiles) 
         {
             // Recursive call if it is a directory, to check the files inside it.
-            if(file.isDirectory())
-                finding(regex,file.getAbsolutePath());
+            if(subFile.isDirectory())
+                findMatchingFiles(regex,subFile.getAbsolutePath());
 
             else
             {
-                String fileName = file.getName();
+                String fileName = subFile.getName();
                 if(Pattern.matches(regex,fileName))
-                    System.out.println(file.getAbsolutePath());
+                    System.out.println(subFile.getAbsolutePath());
             }
         }
     }
@@ -34,20 +35,20 @@ public class FileFinder
     public static void main(String args[]) throws NullPointerException
     {
         String ROOT_FILE_PATH="/home";
-        Scanner sc = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
         
         while(true)
         {
             System.out.print("Enter regex: ");
-            String regex = sc.nextLine();
-            finding(regex,ROOT_FILE_PATH);
+            String regex = scanner.nextLine();
+            findMatchingFiles(regex,ROOT_FILE_PATH);
             
             System.out.print("Search again(Y/N):");
-            String ch = sc.nextLine();
+            String ch = scanner.nextLine();
             if(ch.equals("N") || ch.equals("n"))
                 break;
         }
-        sc.close();
+        scanner.close();
     }
 
 }
