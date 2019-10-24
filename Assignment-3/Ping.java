@@ -14,7 +14,7 @@ public class Ping
 	 * Output: The median time taken to ping.
 	 */
 	
-  public static void runCommand(String command,int pingCount) 
+  public static void runCommand(String command) 
   {
 	try
 	{
@@ -41,7 +41,7 @@ public class Ping
 	    else
 	    {
 	      int length = latencyList.size();
-              if(pingCount % 2 == 0)
+              if(length % 2 == 0)
 		  System.out.println("\nMedian time = "+(latencyList.get(length/2) + latencyList.get(length/2-1))/2);
 	      else
 		  System.out.println("\nMedian time = "+latencyList.get(length/2));
@@ -61,6 +61,6 @@ public class Ping
 	String url = scanner.nextLine();
 	System.out.print("Enter number of times to ping (eg:1-20): ");
 	int pingCount = scanner.nextInt();
-	runCommand("ping -c" + pingCount + " " + url, pingCount);
+	runCommand("ping -c" + pingCount + " " + url);
    }
 }
