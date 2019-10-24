@@ -1,7 +1,7 @@
 To run--
-
-javac filename.java
+```
+javac <filename>.java
 
 java KYC
-
+```
 
