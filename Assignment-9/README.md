@@ -1,5 +1,6 @@
 To run--
-
-javac Assignment_9.java
+```
+javac <filename>.java
 
 java Assignment_9
+```
