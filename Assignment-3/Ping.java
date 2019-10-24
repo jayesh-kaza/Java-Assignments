@@ -6,6 +6,7 @@ import java.util.*;
 public class Ping 
 {
 	/**
+	 *@author : Jayesh
 	 * Java function that will ping any host ( given as input ) and computes the median of the time taken to ping.
 	 * The system ping utility is used.
 	 * 
@@ -13,52 +14,53 @@ public class Ping
 	 * Output: The median time taken to ping.
 	 */
 	
-  public static void runCommand(String command,int times) 
+  public static void runCommand(String command,int pingCount) 
   {
 	try
 	{
 	    Process process = Runtime.getRuntime().exec(command);
-	    BufferedReader br = new BufferedReader(new InputStreamReader(process.getInputStream()));
-	    ArrayList<Float> f = new ArrayList<>();
-	    String s  = "";
-	    String ms = "";
-	    int len = times, flag = 0;
-	    while ((s = br.readLine()) != null)
+	    BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
+	    ArrayList<Float> latencyList = new ArrayList<>();
+	    String output;
+            boolean success = false;
+	    while ((output = reader.readLine()) != null)
 	    {
-		   if(Pattern.matches(".*time=.*",s))
-		   {
-             String ss[] = s.split(" ");
-          	 ms = ss[ss.length-2].substring(5);
-          	 System.out.println(s);
-		  	 f.add(Float.parseFloat(ms));
-		  	 flag = 1;
-		   }
-		}
-	    Collections.sort(f);
-	    if (flag == 0)
-          System.out.println("\nunreachable");
-	    else
-	    {   
-          if(len % 2 == 0)
-		  	System.out.println("\nMedian time = "+(f.get(len/2) + f.get(len/2 -1))/2 );
-		  else
-		    System.out.println("\nMedian time = "+f.get(len/2));
+	      if(Pattern.matches(".*time=.*",output))
+	      {
+                 String splitOutput[] = output.split(" ");
+          	 String latencyValue = splitOutput[splitOutput.length-2].substring(5);
+          	 System.out.println(output);
+		 latencyList.add(Float.parseFloat(latencyValue));
+		 success = true;
+	      }
 	    }
-    }  
-    catch (Exception e) 
-    {
-	   e.printStackTrace();
-	}  
+	     
+	    Collections.sort(latencyList);
+	    if (!success)
+        	System.out.println("\nUnreachable");
+	    else
+	    {
+	      int length = latencyList.size();
+              if(pingCount % 2 == 0)
+		  System.out.println("\nMedian time = "+(latencyList.get(length/2) + latencyList.get(length/2-1))/2);
+	      else
+		  System.out.println("\nMedian time = "+latencyList.get(length/2));
+	    }
+       }
+
+      catch (Exception exception) 
+      {
+	   exception.printStackTrace();
+       }  
   }
 
   public static void main(String[] args) 
   {
-	Scanner sc= new Scanner(System.in);
+	Scanner scanner= new Scanner(System.in);
 	System.out.print("Enter url of the host: ");
-	String url = sc.nextLine();
+	String url = scanner.nextLine();
 	System.out.print("Enter number of times to ping (eg:1-20): ");
-	int t = sc.nextInt();
-	runCommand("ping -c"+t+" "+url,t);
+	int pingCount = scanner.nextInt();
+	runCommand("ping -c" + pingCount + " " + url, pingCount);
    }
-   
 }
