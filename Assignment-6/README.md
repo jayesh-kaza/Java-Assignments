@@ -1,8 +1,8 @@
 To run --
+```
+javac <filename>.java
 
-javac filename.java
-
-java filename
+java <filename>
 
 
 Ex: 
@@ -10,3 +10,4 @@ Ex:
 javac Assignment_6_1.java
 
 java Assignment_6_1
+```
